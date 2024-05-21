@@ -1,0 +1,6 @@
+[submodule "my-numerology-api"]
+	path = my-numerology-api
+	url = https://github.com/longlt201203/my-numerology-api.git
+[submodule "my-numerology-fe"]
+	path = my-numerology-fe
+	url = https://github.com/longlt201203/my-numerology-fe.git
