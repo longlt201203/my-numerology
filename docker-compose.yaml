@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  db:
+    container_name: numerology_db
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    env_file:
+      - ./.env.database
+    restart: always
+    networks:
+      - numerology_net
+
+  api:
+    container_name: numerology_api
+    image: longthanhle1122/numerology-api:latest
+    build:
+      context: ./my-numerology-api
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env.api
+    ports:
+      - 3000:3000
+    restart: always
+    networks:
+      - numerology_net
+
+  fe:
+    container_name: numerology_fe
+    image: longthanhle1122/numerology-fe:latest
+    build:
+      context: ./my-numerology-fe
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env.fe
+    ports:
+      - 5173:80
+    restart: always
+    networks:
+      - numerology_net
+
+networks:
+  numerology_net:
+    driver: bridge
