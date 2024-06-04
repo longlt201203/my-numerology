@@ -4,3 +4,9 @@
 [submodule "my-numerology-fe"]
 	path = my-numerology-fe
 	url = https://github.com/longlt201203/my-numerology-fe.git
+[submodule "numerology-api-v2"]
+	path = numerology-api-v2
+	url = https://github.com/longlt201203/numerology-api-v2.git
+[submodule "numerology-fe-v2"]
+	path = numerology-fe-v2
+	url = https://github.com/longlt201203/numerology-fe-v2.git
