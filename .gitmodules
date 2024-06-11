@@ -13,3 +13,6 @@
 [submodule "numerology-fe-v3"]
 	path = numerology-fe-v3
 	url = https://github.com/longlt201203/numerology-fe-v3.git
+[submodule "numerology-api-v3"]
+	path = numerology-api-v3
+	url = https://github.com/longlt201203/numerology-api-v3.git
