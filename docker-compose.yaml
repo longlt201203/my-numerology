@@ -1,18 +1,8 @@
 version: '3.9'
 name: my_numerology
+include:
+  - infra.yaml
 services:
-  db:
-    image: mysql:8.0
-    container_name: numerlogy_db
-    env_file:
-      - .env.database
-    ports:
-      - 3306:3306
-    volumes:
-      - my_numerology_db_vol:/var/lib/mysql
-    networks:
-      - my_numerology_net
-
   api:
     image: ${DOCKER_REGISTRY}/numerology-api-v3:${API_TAG}
     container_name: numerlogy_api_v3
@@ -38,10 +28,3 @@ services:
     depends_on:
       - api
     restart: always
-
-networks:
-  my_numerology_net:
-    driver: bridge
-
-volumes:
-  my_numerology_db_vol:

@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  db:
+    image: mysql:8.0
+    container_name: numerlogy_db
+    env_file:
+      - .env.database
+    ports:
+      - 3306:3306
+    volumes:
+      - my_numerology_db_vol:/var/lib/mysql
+    networks:
+      - my_numerology_net
+    restart: always
+
+volumes:
+  my_numerology_db_vol:
+
+networks:
+  my_numerology_net:
+    driver: bridge
