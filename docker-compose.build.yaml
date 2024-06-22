@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  api:
+    image: ${DOCKER_REGISTRY}/numerology-api-v3:${API_TAG}
+    build:
+      context: ./numerology-api-v3
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+      - .env.api
+  
+  fe:
+    image: ${DOCKER_REGISTRY}/numerology-fe-v3:${FE_TAG}
+    build:
+      context: ./numerology-fe-v3
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+      - .env.fe

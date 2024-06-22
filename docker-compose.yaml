@@ -1,0 +1,47 @@
+version: '3.9'
+name: my_numerology
+services:
+  db:
+    image: mysql:8.0
+    container_name: numerlogy_db
+    env_file:
+      - .env.database
+    ports:
+      - 3306:3306
+    volumes:
+      - my_numerology_db_vol:/var/lib/mysql
+    networks:
+      - my_numerology_net
+
+  api:
+    image: ${DOCKER_REGISTRY}/numerology-api-v3:${API_TAG}
+    container_name: numerlogy_api_v3
+    env_file:
+      - .env.api
+    ports:
+      - 1301:${API_LISTEN_PORT}
+    networks:
+      - my_numerology_net
+    depends_on:
+      - db
+    restart: always
+  
+  fe:
+    image: ${DOCKER_REGISTRY}/numerology-fe-v3:${FE_TAG}
+    container_name: numerology_fe_v3
+    env_file:
+      - .env.fe
+    ports:
+      - 80:80
+    networks:
+      - my_numerology_net
+    depends_on:
+      - api
+    restart: always
+
+networks:
+  my_numerology_net:
+    driver: bridge
+
+volumes:
+  my_numerology_db_vol:

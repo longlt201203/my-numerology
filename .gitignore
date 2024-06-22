@@ -1,3 +1,4 @@
+.env
 .env.api
 .env.fe
 .env.database
