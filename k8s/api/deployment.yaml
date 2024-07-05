@@ -24,6 +24,7 @@ spec:
           envFrom:
             - secretRef:
                 name: numerology-api-secret
+                optional: false
 
       volumes:
         - name: numerology-api-secret-vol

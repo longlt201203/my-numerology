@@ -24,3 +24,4 @@ spec:
           envFrom:
             - secretRef:
                 name: numerology-api-secret
+                optional: false
