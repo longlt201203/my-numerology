@@ -23,7 +23,7 @@ spec:
             - containerPort: 3000
           volumeMounts:
             - name: numerology-api-secret-vol
-              mountPath: /api/.env
+              mountPath: /app/.env
 
       volumes:
         - name: numerology-api-secret-vol
