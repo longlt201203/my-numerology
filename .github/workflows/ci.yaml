@@ -15,9 +15,15 @@ on:
           - api
 
 jobs:
-  generate-:
+  generate-k8s-manifest:
     runs-on: ubuntu-latest
+    container: node:20
     steps:
       - name: Check run ID
         run: |
-          echo "Running on ${{ inputs.project }} project with ID: ${{ inputs.run_id }}"
+          echo "Running on \"${{ inputs.project }}\" project with ID: ${{ inputs.run_id }}"
+      - name: Checkout to the source code
+        uses: actions/checkout@v4
+      - name: Generate K8S Manifest Files
+        run: |
+          node ./k8s/generate ${{ inputs.project }} ${{ inputs.run_id }}
