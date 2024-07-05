@@ -21,17 +21,6 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 3000
-          volumeMounts:
-            - name: numerology-api-secret-vol
-              mountPath: /app/.env
-          livenessProbe:
-            exec:
-              command:
-                - ls
-                - -a
-                - /app
-
-      volumes:
-        - name: numerology-api-secret-vol
-          secret:
-            secretName: numerology-api-secret
+          envFrom:
+            - secretRef:
+                name: numerology-api-secret
