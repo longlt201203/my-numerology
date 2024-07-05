@@ -26,5 +26,9 @@ const deploymentFileOutput = path.resolve(
 
 console.log("Writing output to deployment.yaml file...");
 fs.writeFileSync(deploymentFileOutput, deploymentContent);
+console.log("Finish writing output.");
+
+const dir = fs.readdirSync(path.resolve(__dirname, project));
+console.log("Check dir content:", dir);
 
 console.log("DONE");
