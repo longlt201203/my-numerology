@@ -24,6 +24,12 @@ spec:
           volumeMounts:
             - name: numerology-api-secret-vol
               mountPath: /app/.env
+          livenessProbe:
+            exec:
+              command:
+                - ls
+                - -a
+                - /app
 
       volumes:
         - name: numerology-api-secret-vol
