@@ -21,3 +21,11 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 3000
+          volumeMounts:
+            - name: numerology-api-secret-vol
+              mountPath: /api/.env
+
+      volumes:
+        - name: numerology-api-secret-vol
+          secret:
+            secretName: numerology-api-secret
