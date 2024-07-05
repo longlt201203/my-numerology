@@ -1,0 +1,23 @@
+name: My Numerology CI
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Run ID
+        required: true
+        type: string
+      project:
+        description: Project
+        required: true
+        type: choice
+        options:
+          - fe
+          - api
+
+jobs:
+  generate-:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check run ID
+        run: |
+          echo "Running on ${{ inputs.project }} project with ID: ${{ inputs.run_id }}"
