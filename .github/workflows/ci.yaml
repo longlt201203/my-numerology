@@ -34,5 +34,6 @@ jobs:
           git config --global safe.directory '*'
           git config --global user.name = 'Le Thanh Long'
           git config --global user.email = 'longlt201203@gmail.com'
-          git commit -am "Update K8S File for \"${{ inputs.project }}\" with ID: ${{ inputs.run_id }}"
+          git add .
+          git commit -m "Update K8S File for \"${{ inputs.project }}\" with ID: ${{ inputs.run_id }}"
           git push
