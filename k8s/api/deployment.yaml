@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: numerology-api
-          image: longthanhle1122/numerology-api:test1
+          image: longthanhle1122/numerology-api:asdasdwfcqwc
           resources:
             limits:
               memory: "128Mi"
